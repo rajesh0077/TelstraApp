@@ -1,0 +1,29 @@
+//
+//  AppConstant.swift
+//  TelstraDemoApp
+//
+//  Created by RajeshDeshmukh on 30/06/20.
+//  Copyright © 2020 Rajesh Deshmukh. All rights reserved.
+//
+import UIKit
+
+class AppConstant {
+
+  ///  List of  color codes
+  struct AppColor {
+    static let kColor_black = UIColor.black
+    static let kColor_DarkGray = UIColor.darkGray
+  }
+  
+  ///  List of fonts
+  struct AppFonts {
+    static let kboldSystemFont16 = UIFont.boldSystemFont(ofSize: 16)
+    static let ksystemFont14 = UIFont.systemFont(ofSize: 14)
+  }
+  
+  ///  List of cell identifires
+  struct CellIdentifire {
+    static let kFactsTableViewCellId = "FactsTableViewCell"
+  }
+  
+}
