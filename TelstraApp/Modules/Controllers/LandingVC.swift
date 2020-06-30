@@ -17,19 +17,43 @@ class LandingVC: UITableViewController {
     
     /// Variables
     lazy var viewModelObj = {
-        return FactsViewModel()
+        /// here is the use of constructor’s dependency injection
+        return FactsViewModel(landingVCObj: self)
     }()
     
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Rajesh")
         configureTableView()
+        callAPI()
     }
     
     deinit {
         print("perform the deinitialization")
+    }
+    
+}
+
+/// Utility Methods of  API
+extension LandingVC {
+    
+    /// Function to fetch API Data
+    func callAPI() {
+        viewModelObj.fetchAboutCanadaFacts()
+    }
+    
+    /// API Response Received
+    /// - parameter Bool: is success from
+    /// - parameter AnyObject?:  instance of view model object
+    /// - parameter AnyObject: instance of exception if any
+    func didReceiveApiResponse(isSuccess: Bool, exception: AnyObject?) {
+        
+        if isSuccess {
+            print(isSuccess)
+        } else {
+            print("\(exception?.localizedDescription ?? AppConstant.LiteralString.errorMsg)")
+        }
     }
     
 }
@@ -44,11 +68,11 @@ extension LandingVC {
         tableView?.dataSource = self
         tableView?.rowHeight = UITableView.automaticDimension
         tableView?.estimatedRowHeight = LandingVC.Constant.estimatedRowHeight
+        registerUINibForCell()
         
         ///Eliminate extra separators below UITableView
         tableView?.tableFooterView = UIView()
         
-        registerUINibForCell()
     }
     
     /// Function to  register tableViewCell
@@ -83,4 +107,20 @@ extension LandingVC {
         return getFactsTableViewCellFor(indexPath: indexPath) ?? UITableViewCell()
     }
     
+}
+
+// MARK: - Helper Methods
+
+extension LandingVC {
+  
+  /// Function to displays alertview controller
+  /// - parameter String: title for alert
+  /// - parameter String: message for alert
+  /// - parameter String: actionbtnTitle for alert
+  func showAlert(title : String , message : String , actionTitle : String) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
+  }
+  
 }

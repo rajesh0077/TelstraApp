@@ -17,6 +17,10 @@
 		025E6BB924AB307E0064E7EA /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025E6BB824AB307E0064E7EA /* LandingVC.swift */; };
 		025E6BBD24AB30AD0064E7EA /* FactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025E6BBC24AB30AD0064E7EA /* FactsTableViewCell.swift */; };
 		025E6BBF24AB30DC0064E7EA /* FactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025E6BBE24AB30DC0064E7EA /* FactsViewModel.swift */; };
+		025E6BC224AB47E50064E7EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025E6BC024AB47E50064E7EA /* ViewController.swift */; };
+		025E6BC324AB47E50064E7EA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 025E6BC124AB47E50064E7EA /* ViewController.xib */; };
+		025E6BC524AB48CD0064E7EA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025E6BC424AB48CD0064E7EA /* NetworkManager.swift */; };
+		025E6BC724AB4FC80064E7EA /* FactsRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025E6BC624AB4FC70064E7EA /* FactsRowModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		025E6BB824AB307E0064E7EA /* LandingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
 		025E6BBC24AB30AD0064E7EA /* FactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactsTableViewCell.swift; sourceTree = "<group>"; };
 		025E6BBE24AB30DC0064E7EA /* FactsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactsViewModel.swift; sourceTree = "<group>"; };
+		025E6BC024AB47E50064E7EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		025E6BC124AB47E50064E7EA /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		025E6BC424AB48CD0064E7EA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		025E6BC624AB4FC70064E7EA /* FactsRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsRowModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +171,8 @@
 		025E6B9F24AB04550064E7EA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				025E6BC024AB47E50064E7EA /* ViewController.swift */,
+				025E6BC124AB47E50064E7EA /* ViewController.xib */,
 				025E6BB824AB307E0064E7EA /* LandingVC.swift */,
 			);
 			path = Controllers;
@@ -171,6 +181,7 @@
 		025E6BA024AB049E0064E7EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				025E6BC624AB4FC70064E7EA /* FactsRowModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 		025E6BA324AB05AB0064E7EA /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				025E6BC424AB48CD0064E7EA /* NetworkManager.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -319,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				023C003424AA2F4A008EFDF3 /* LaunchScreen.storyboard in Resources */,
+				025E6BC324AB47E50064E7EA /* ViewController.xib in Resources */,
 				023C003124AA2F4A008EFDF3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,9 +358,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				025E6BBF24AB30DC0064E7EA /* FactsViewModel.swift in Sources */,
+				025E6BC724AB4FC80064E7EA /* FactsRowModel.swift in Sources */,
 				025E6BB924AB307E0064E7EA /* LandingVC.swift in Sources */,
 				025E6BB724AB30710064E7EA /* AppConstant.swift in Sources */,
 				023C002824AA2F49008EFDF3 /* AppDelegate.swift in Sources */,
+				025E6BC524AB48CD0064E7EA /* NetworkManager.swift in Sources */,
+				025E6BC224AB47E50064E7EA /* ViewController.swift in Sources */,
 				023C002A24AA2F49008EFDF3 /* SceneDelegate.swift in Sources */,
 				025E6BBD24AB30AD0064E7EA /* FactsTableViewCell.swift in Sources */,
 			);
