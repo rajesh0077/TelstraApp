@@ -26,6 +26,7 @@ class LandingVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        addRefreshButton()
         callAPI()
     }
     
@@ -53,18 +54,18 @@ extension LandingVC {
             
             print(isSuccess)
             DispatchQueue.main.async {
-              self.title = self.viewModelObj.getNavigationTitle()
-              if self.viewModelObj.getTotalNumberOfFacts() > 0 {
-                self.tableView.reloadData()
-              }
+                self.title = self.viewModelObj.getNavigationTitle()
+                if self.viewModelObj.getTotalNumberOfFacts() > 0 {
+                    self.tableView.reloadData()
+                }
             }
             
         } else {
-            
-            self.showAlert(title: AppConstant.LiteralString.errorTitle,
-            message : exception?.localizedDescription ?? AppConstant.LiteralString.errorMsg,
-            actionTitle : AppConstant.LiteralString.okBtn)
-            
+            DispatchQueue.main.async {
+                self.showAlert(title: AppConstant.LiteralString.errorTitle,
+                               message : exception?.localizedDescription ?? AppConstant.LiteralString.errorMsg,
+                               actionTitle : AppConstant.LiteralString.okBtn)
+            }
         }
     }
     
@@ -140,5 +141,13 @@ extension LandingVC {
     self.present(alert, animated: true, completion: nil)
     
   }
+    func addRefreshButton() {
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
+        self.navigationItem.rightBarButtonItem = refreshButton
+    }
+    
+    @objc func refresh() {
+        callAPI()
+    }
   
 }
