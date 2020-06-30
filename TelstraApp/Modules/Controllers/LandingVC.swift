@@ -129,18 +129,18 @@ extension LandingVC {
 // MARK: - Helper Methods
 
 extension LandingVC {
-  
-  /// Function to displays alertview controller
-  /// - parameter String: title for alert
-  /// - parameter String: message for alert
-  /// - parameter String: actionbtnTitle for alert
-  func showAlert(title : String , message : String , actionTitle : String) {
     
-    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: nil))
-    self.present(alert, animated: true, completion: nil)
-    
-  }
+    /// Function to displays alertview controller
+    /// - parameter String: title for alert
+    /// - parameter String: message for alert
+    /// - parameter String: actionbtnTitle for alert
+    func showAlert(title : String , message : String , actionTitle : String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     func addRefreshButton() {
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
         self.navigationItem.rightBarButtonItem = refreshButton
@@ -149,5 +149,5 @@ extension LandingVC {
     @objc func refresh() {
         callAPI()
     }
-  
+    
 }
