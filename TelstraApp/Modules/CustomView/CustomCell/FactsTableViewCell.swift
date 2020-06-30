@@ -10,7 +10,7 @@ import UIKit
 
 class FactsTableViewCell: UITableViewCell {
     
-    /// private constants
+    /// Private Constants
     private struct Constant {
       static let borderWidth: CGFloat = 0.1
       static let imageWidth: CGFloat = 50
@@ -22,7 +22,24 @@ class FactsTableViewCell: UITableViewCell {
       static let numberOfLines: Int = 0
     }
     
-    /// instance of UIImageView for image
+    /// Computated property to set tableview cell data
+    var rowCellModel: DisplayRowModel? {
+        didSet {
+            guard let model = rowCellModel else {return}
+            if let title = model.title {
+                lblTitle.text = title
+            }
+            if let description = model.description {
+                lblDescription.text = description
+            }
+            if let href = model.imageHref {
+                imgView.downloaded(from: href)
+                
+            }
+        }
+    }
+    
+    /// Instance of UIImageView for image
     let imgView:UIImageView = {
       let img = UIImageView()
       img.contentMode = .scaleAspectFill // image will never be strecthed vertially or horizontally
@@ -35,7 +52,7 @@ class FactsTableViewCell: UITableViewCell {
       return img
     }()
     
-    /// instance of UILabel for title
+    /// Instance of UILabel for title
     let lblTitle:UILabel = {
       let label = UILabel()
       label.font = AppConstant.AppFonts.kboldSystemFont16
@@ -47,7 +64,7 @@ class FactsTableViewCell: UITableViewCell {
       return label
     }()
     
-    /// instance of UILabel for description
+    /// Instance of UILabel for description
     let lblDescription:UILabel = {
       let label = UILabel()
       label.font =  AppConstant.AppFonts.ksystemFont14
@@ -59,12 +76,12 @@ class FactsTableViewCell: UITableViewCell {
       return label
     }()
     
-    /// configuration of cell
+    /// Configuration of cell
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
       super.init(style: style, reuseIdentifier: reuseIdentifier)
       let marginGuide = contentView.layoutMarginsGuide
       
-      // configure imgView
+      // Configure imgView
       contentView.addSubview(imgView)
       imgView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
       imgView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
@@ -74,14 +91,14 @@ class FactsTableViewCell: UITableViewCell {
       con.priority = UILayoutPriority(FactsTableViewCell.Constant.priority)
       con.isActive = true
       
-      // configure lblTitle
+      // Configure lblTitle
       contentView.addSubview(lblTitle)
       lblTitle.translatesAutoresizingMaskIntoConstraints = false
       lblTitle.leadingAnchor.constraint(equalTo: imgView.trailingAnchor, constant: FactsTableViewCell.Constant.spacing).isActive = true
       lblTitle.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
       lblTitle.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
       
-      // configure lblDescription
+      // Configure lblDescription
       contentView.addSubview(lblDescription)
       lblDescription.translatesAutoresizingMaskIntoConstraints = false
       lblDescription.leadingAnchor.constraint(equalTo: imgView.trailingAnchor, constant: FactsTableViewCell.Constant.spacing).isActive = true

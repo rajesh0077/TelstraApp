@@ -10,7 +10,7 @@ import UIKit
 
 class LandingVC: UITableViewController {
     
-    /// private constants
+    /// Private Constants
     private struct Constant {
         static let estimatedRowHeight: CGFloat = 44
     }
@@ -35,7 +35,8 @@ class LandingVC: UITableViewController {
     
 }
 
-/// Utility Methods of  API
+// MARK: - API Utility Methods
+
 extension LandingVC {
     
     /// Function to fetch API Data
@@ -44,15 +45,26 @@ extension LandingVC {
     }
     
     /// API Response Received
-    /// - parameter Bool: is success from
-    /// - parameter AnyObject?:  instance of view model object
+    /// - parameter Bool: is success from API
     /// - parameter AnyObject: instance of exception if any
     func didReceiveApiResponse(isSuccess: Bool, exception: AnyObject?) {
         
         if isSuccess {
+            
             print(isSuccess)
+            DispatchQueue.main.async {
+              self.title = self.viewModelObj.getNavigationTitle()
+              if self.viewModelObj.getTotalNumberOfFacts() > 0 {
+                self.tableView.reloadData()
+              }
+            }
+            
         } else {
-            print("\(exception?.localizedDescription ?? AppConstant.LiteralString.errorMsg)")
+            
+            self.showAlert(title: AppConstant.LiteralString.errorTitle,
+            message : exception?.localizedDescription ?? AppConstant.LiteralString.errorMsg,
+            actionTitle : AppConstant.LiteralString.okBtn)
+            
         }
     }
     
@@ -68,15 +80,15 @@ extension LandingVC {
         tableView?.dataSource = self
         tableView?.rowHeight = UITableView.automaticDimension
         tableView?.estimatedRowHeight = LandingVC.Constant.estimatedRowHeight
-        registerUINibForCell()
+        registerTableCell()
         
         ///Eliminate extra separators below UITableView
         tableView?.tableFooterView = UIView()
         
     }
     
-    /// Function to  register tableViewCell
-    func registerUINibForCell() {
+    /// Function to  register table view cell
+    func registerTableCell () {
         if let tableView = tableView {
             tableView.register(FactsTableViewCell.self, forCellReuseIdentifier: AppConstant.CellIdentifire.kFactsTableViewCellId)
         }
@@ -87,11 +99,15 @@ extension LandingVC {
     /// - ReturnS: instance of ImageTableViewCell
     func getFactsTableViewCellFor(indexPath: IndexPath) -> FactsTableViewCell? {
         let cell = tableView?.dequeueReusableCell(withIdentifier: AppConstant.CellIdentifire.kFactsTableViewCellId, for: indexPath) as! FactsTableViewCell
+        
+        /// set table view cell data
+        cell.rowCellModel = viewModelObj.getPerticularFactAtIndexPath(indexPath: indexPath)
+        
         return cell
     }
     
 }
-// MARK: -  Table view data source
+// MARK: -  TableView Data Source
 
 extension LandingVC {
     
@@ -118,9 +134,11 @@ extension LandingVC {
   /// - parameter String: message for alert
   /// - parameter String: actionbtnTitle for alert
   func showAlert(title : String , message : String , actionTitle : String) {
+    
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: nil))
     self.present(alert, animated: true, completion: nil)
+    
   }
   
 }

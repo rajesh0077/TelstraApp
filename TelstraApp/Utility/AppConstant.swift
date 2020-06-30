@@ -38,4 +38,9 @@ class AppConstant {
         static let kFactsTableViewCellId = "FactsTableViewCell"
     }
     
+    ///  List of Images
+     struct AppImage {
+       static let placeholder = "placeholder"
+     }
+    
 }

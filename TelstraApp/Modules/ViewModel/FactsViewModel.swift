@@ -14,6 +14,9 @@ class FactsViewModel {
     var displayAboutCanda: [DisplayRowModel]?
     var navTitle: String?
     
+    init() {
+    }
+    
     init(landingVCObj: LandingVC) {
         self.landingVCObj = landingVCObj
     }
@@ -23,12 +26,26 @@ class FactsViewModel {
     }
     
     func getNumberOfRows() -> Int {
-        return 4
+        return getTotalNumberOfFacts()
+    }
+    
+    func getTotalNumberOfFacts() -> Int {
+        return displayAboutCanda?.count ?? 0
+    }
+    
+    func getNavigationTitle() -> String {
+        return navTitle ?? ""
+    }
+    
+    func getPerticularFactAtIndexPath(indexPath: IndexPath) -> DisplayRowModel? {
+        return displayAboutCanda?[indexPath.row]
     }
     
     ///  function to fetch API Data by given URL
     func fetchAboutCanadaFacts() {
         let urlStr = AppConstant.ApiURLS.aboutCanada
+        
+        /// Actual API Call using Network Manager
         NetworkManager.shared.callAPI(withURLStr: urlStr, onCompletion: {(data, error) in
             
             guard let data = data else {
