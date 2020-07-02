@@ -29,15 +29,21 @@ class FactsTableViewCell: UITableViewCell {
             guard let model = rowCellModel else {return}
             if let title = model.title {
                 lblTitle.text = title
+            } else {
+                lblTitle.text = ""
             }
             if let description = model.description {
                 lblDescription.text = description
+            } else {
+                lblDescription.text = ""
             }
             if let href = model.imageHref {
                 //imgView.downloaded(from: href)
                 
                 // using third party framework SDWebImage
                 imgView.sd_setImage(with: URL(string: href), placeholderImage: UIImage(named: AppConstant.AppImage.placeholder))
+            } else {
+                imgView.image = UIImage(named: AppConstant.AppImage.placeholder)
             }
         }
     }
