@@ -132,6 +132,7 @@
 				025E6B9C24AB008C0064E7EA /* Modules */,
 				025E6BA324AB05AB0064E7EA /* NetworkManager */,
 				025E6BA224AB04E50064E7EA /* Utility */,
+				023C003524AA2F4A008EFDF3 /* Info.plist */,
 			);
 			path = TelstraApp;
 			sourceTree = "<group>";
@@ -180,7 +181,6 @@
 			children = (
 				023C003024AA2F4A008EFDF3 /* Assets.xcassets */,
 				023C003224AA2F4A008EFDF3 /* LaunchScreen.storyboard */,
-				023C003524AA2F4A008EFDF3 /* Info.plist */,
 				025E6BCA24AB6FD00064E7EA /* localJSON.json */,
 			);
 			path = Resources;
@@ -680,7 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = /Users/yogitabansode/Desktop/FinalTelstraDemo/Final/TelstraApp/TelstraApp/DefaultFiles/Resources/Info.plist;
+				INFOPLIST_FILE = TelstraApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -698,7 +698,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = /Users/yogitabansode/Desktop/FinalTelstraDemo/Final/TelstraApp/TelstraApp/DefaultFiles/Resources/Info.plist;
+				INFOPLIST_FILE = TelstraApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -717,7 +717,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = /Users/yogitabansode/Desktop/FinalTelstraDemo/Final/TelstraApp/TelstraApp/DefaultFiles/Resources/Info.plist;
+				INFOPLIST_FILE = TelstraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -739,7 +739,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = /Users/yogitabansode/Desktop/FinalTelstraDemo/Final/TelstraApp/TelstraApp/DefaultFiles/Resources/Info.plist;
+				INFOPLIST_FILE = TelstraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -760,7 +760,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = /Users/yogitabansode/Desktop/FinalTelstraDemo/Final/TelstraApp/TelstraApp/DefaultFiles/Resources/Info.plist;
+				INFOPLIST_FILE = TelstraApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -780,7 +780,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = /Users/yogitabansode/Desktop/FinalTelstraDemo/Final/TelstraApp/TelstraApp/DefaultFiles/Resources/Info.plist;
+				INFOPLIST_FILE = TelstraApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
